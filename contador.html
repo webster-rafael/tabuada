@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Contador</title>
+
+    <style>
+        body 
+        {
+            background-color: black;
+            color: rgb(132, 132, 9);
+            text-align: center;
+        }
+
+        section
+        {
+            width: 366px;
+            margin: auto;
+            border: 1px solid yellow;
+        }
+
+        #res 
+        {
+            color: #fff;
+            
+        }
+
+        #button 
+        {
+            background-color: yellow;
+            color: black;
+            width: 100px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.1rem;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos Contar</h1>
+    </header>
+    <section>
+        <div id="dados">
+            <p>Inicio: <input type="number" name="inicio" id="txti"></p>
+            <p>Fim: <input type="number" name="fim" id="txtf"></p>
+            <p>Passo: <input type="number" name="passo" id="txtp"></p>
+            <p><input type="button" value="Contar" id="button" onclick="contar()"></p>
+        </div>
+        <div id="res">
+            Preparando a Contagem
+        </div>
+    </section>
+    <footer>
+        <p>&copy; WebsterDev</p>
+    </footer>
+
+</body>
+    <script>
+        function contar()
+        {
+        var inic = document.getElementById('txti')
+        var fim = document.getElementById('txtf')
+        var passo = document.getElementById('txtp')
+        var res = document.getElementById('res')
+
+        if (inic.value.length == 0 || fim.value.lenght == 0 || passo.value.length == 0 ) 
+        {
+            window.alert('[Erro] Faltam Dados')
+        } else
+        {
+            res.innerHTML = 'Contando...<br>' 
+            let i = Number(inic.value)
+            let f = Number(fim.value)
+            let p = Number(passo.value)
+
+            if (i < f) 
+            {
+            //Contagem Crescente
+                for (let c = i; c <= f; c += p) {
+                res.innerHTML += `${c} `
+                }    
+            } else
+            {
+                //Contagem Regressiva
+                for(let c = i; c >= f; c -= p)
+                {
+                    res.innerHTML += `${c} ` 
+                }
+            }
+        }    
+    }
+
+
+    </script>
+</html>
